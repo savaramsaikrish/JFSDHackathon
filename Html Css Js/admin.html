@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="weblogo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="banner">
+        <img src="logo.png" alt="Your Logo" class="logo">
+        <ul class="navbar">
+            <li><a href="createpost.html" class="nav-link" data-target="home">Home</a></li>
+            <li><a href="afterloginfea1.html" class="nav-link" data-target="features">Users List</a></li>
+            <li><a href="afterlogin.html" class="nav-link" data-target="blog">Blog</a></li>
+            <li><a href="contact1.html" class="nav-link" data-target="Contact">Contact</a></li>
+            <li><a href="index.html" class="nav-link" data-target="Logout">Logout</a></li>
+            <li><a href="recent1.html" class="nav-link" data-target="Recent posts">Recent posts</a></li>  </ul>
+        <div class="content">
+            <h1>Welcome!</h1>
+            <p>This is your welcome page.</p>
+            <button id="createPostBtn">View Users</button>
+        </div>
+    </div>
+    
+    <script>
+        // Event listener for the "Create Post" button
+        document.getElementById('createPostBtn').addEventListener('click', function() {
+            window.location.href = 'afterlogin.html'; // Redirect to home.html
+        });
+    </script>
+</body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+
+    .banner {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+    }
+
+    
+
+    .content {
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Style for the "Create Post" button */
+    #createPostBtn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #createPostBtn:hover {
+        background-color: #0056b3;
+    }
+    </style>
+</html>

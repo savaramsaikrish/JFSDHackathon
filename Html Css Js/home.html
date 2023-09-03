@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="banner">
+    <img src="logo.png" alt="Your Logo" class="logo">
+    <ul class="navbar">
+      
+      <!-- Other navigation items -->
+      <li><a href="index.html" class="nav-link" data-target="home">Home</a></li>
+      <li><a href="features.html" class="nav-link" data-target="features">Features</a></li>
+      <li><a href="home.html" class="nav-link" data-target="blog">Blog</a></li>
+      <li><a href="login.html" class="nav-link" data-target="login">Login</a></li>
+      <li><a href="register.html" class="nav-link" data-target="registration">Registration</a></li>
+      <li><a href="contactus.html" class="nav-link" data-target="Contact">Contact</a></li>
+
+    </ul>
+    <div class="container">
+      <div class="datetime" id="datetime"></div>
+    </div>
+    <h1>Create a New Post</h1>
+  <form id="postForm">
+    <h3><label for="postContent"> Post Title</label></h3>
+    <div class="form-group"> 
+      <input type="text" id="postTitle" name="postTitle"  required>
+    </div>
+    <br/>
+    <h3><label for="postContent">Post Content (max 1000 characters)</label></h3>
+    <div class="form-group">
+      
+      <textarea id="postContent" name="postContent" rows="10" cols="200" maxlength="1000" required></textarea>
+    </div> 
+    <button class="createPostBtn" type="submit">Post</button>
+
+  </form>
+  <p id="postStatus" style="display: none; color: green;">Blog posted successfully!</p>
+  
+  <script>
+    // Function to show the success message
+    function showPostStatus() {
+      const postStatus = document.getElementById('postStatus');
+      postStatus.style.display = 'block';
+      setTimeout(function() {
+        postStatus.style.display = 'none';
+      }, 100000); // Hide the message after 3 seconds
+    }
+
+    // Event listener for form submission
+    document.getElementById('postForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      showPostStatus();
+      document.getElementById('postForm').reset(); // Reset the form
+    });
+
+    // Function to update datetime
+    function updateDateTime() {
+      const datetimeElement = document.getElementById("datetime");
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+      const formattedDate = now.toLocaleDateString(undefined, options);
+
+      datetimeElement.textContent = formattedDate;
+    }
+
+    updateDateTime();
+
+    // Get references to the textarea elements
+const postContentTextarea = document.getElementById('postContent');
+const postTitleInput = document.getElementById('postTitle');
+
+// Add event listeners to both elements to adjust their size
+postContentTextarea.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+});
+
+postTitleInput.addEventListener('input', function() {
+    this.style.width = 'auto';
+    this.style.width = (this.scrollWidth) + 'px';
+});
+
+  </script>
+</body>
+</html>
+
+  
+  
+</body>
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.datetime {
+  font-size: 12px;
+}
+
+.container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 600px; /* Increase the width as needed */
+  height: auto; /* Allow the container's height to adjust to its content */
+  margin: auto; /* Center the container horizontally */
+}
+
+.form-group {
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: vertical;
+    /* Add any additional styles you want for the textarea here */
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+/* Style the submit button */
+/* Style the "Post" button */
+
+#createPostBtn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #createPostBtn:hover {
+        background-color: #0056b3;
+    }
+
+</style>
+</html>
+
+
